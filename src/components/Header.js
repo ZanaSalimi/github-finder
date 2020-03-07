@@ -3,8 +3,7 @@ import githubLogo from '../img/Icon-github.png'
 export class Header extends Component {
     render() {
         return (
-            <div className="container mt-4">
-                <nav className="navbar navbar-expand-lg navbar-light">
+                <nav className="navbar navbar-expand-lg navbar-light pt-4">
                     <a className="navbar-brand" href="/">
                         <img src={githubLogo} alt="GithubFinder"/>
                     </a>
@@ -15,7 +14,6 @@ export class Header extends Component {
                     </div>
                 </div>
                 </nav>
-            </div>
         )
     }
 }

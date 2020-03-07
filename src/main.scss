@@ -1,3 +1,12 @@
-body{
-    font-family: 'Montserrat', sans-serif;
+.main-content{
+    h1{
+        font-family: 'Montserrat', sans-serif;
+        font-size: 4rem;
+        font-weight: 900;
+    }
+}
+.user-search{
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.05);
+    border-radius: 14px;
+    outline: none;
 }
