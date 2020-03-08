@@ -1,3 +1,6 @@
+body{
+    font-family: 'Montserrat', sans-serif;
+}
 .main-content{
     h1{
         font-family: 'Montserrat', sans-serif;
@@ -9,4 +12,20 @@
     box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.05);
     border-radius: 14px;
     outline: none;
+}
+.user-item{
+    background-color: #ffff;
+    box-shadow: 0px 3px 6px 0px rgba(239,244,253,1);
+    color: #5B6270;
+}
+.users{
+    padding: 10px 150px;
+}
+.profile-btn{
+    border-radius: 14px;
+    background-color: #EFF4FD;
+    color: #377DFF;
+    border: none;
+    outline: none;
+    padding: 0px 20px;
 }
