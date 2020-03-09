@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 export class Footer extends Component {
     render() {
         return (
-            <div className=" my-2">
-                <p className="text-center">Designed And Developed By ZanaSalimi</p>
-            </div>
+            <footer className="d-flex justify-content-center">
+                <p>Designed And Developed By ZanaSalimi</p>
+            </footer>
+            
         )
     }
 }

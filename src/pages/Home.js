@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import mainImage from '../img/github-header.png'
-
+import { Router, Link } from 'react-router-dom'
 export class Home extends Component {
     render() {
         return (
@@ -9,7 +9,9 @@ export class Home extends Component {
                     <h1>
                     <span className="d-block">FIND GITHUB</span>ACCOUNTS
                     </h1>
-                    <input type="text" placeholder="Search Github User..." className="mt-3 w-100 border-0 user-search p-3" />
+                    <button className="submit-btn mt-5">
+                        Lets Start!
+                        </button>
                 </div>
                 <div className="main-image">
                     <img src={mainImage} alt="github cat"/>

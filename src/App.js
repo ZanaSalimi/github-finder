@@ -30,7 +30,7 @@ export class App extends Component {
       return (
         <div className="container">
           <Header />
-          <SearchedUsers users={this.state.data} />
+          <Home onClick={this.onClick} />
           <Footer />
         </div>
       )
