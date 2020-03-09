@@ -14,12 +14,6 @@ export class App extends Component {
       loading: false
     }
   }
-  UNSAFE_componentWillMount(){
-    this.setState({loading: true})
-    fetch(`https://api.github.com/users`)
-    .then(res => res.json())
-    .then(data => this.setState({ data, loading: false }))
-  }
   render() {
     if(this.state.loading){
       return(
@@ -29,9 +23,7 @@ export class App extends Component {
     else{
       return (
         <div className="container">
-          <Header />
-          <Home onClick={this.onClick} />
-          <Footer />
+            <Home />
         </div>
       )
     }
