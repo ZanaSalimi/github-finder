@@ -5,7 +5,7 @@ export class SearchedUsers extends Component {
         return (
             <div>
                 <input type="text" placeholder="Search Github User..." className="mt-3 w-100 border-0 user-search p-3" />
-                <Users />
+                <Users users={this.props.users} />
             </div>
         )
     }
