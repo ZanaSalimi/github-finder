@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import githubLogo from '../img/Icon-github.png'
 export class Header extends Component {
     render() {
@@ -9,8 +10,8 @@ export class Header extends Component {
                     </a>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav ml-auto">
-                        <a className="nav-item nav-link mr-3" href="/">Contact Us</a>
-                        <a className="nav-item nav-link" href="/">About Us</a>
+                        <Link to="/" className="nav-item nav-link mr-3">Home</Link>
+                        <Link to="/Contact" className="nav-item nav-link mr-3">Contact Me</Link>
                     </div>
                 </div>
                 </nav>

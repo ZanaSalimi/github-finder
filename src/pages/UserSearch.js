@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Users from '../components/Users'
 import Search from '../components/Search'
-export class SearchedUsers extends Component {
+export class UserSearch extends Component {
     state = {
         tst: []
     }
@@ -17,5 +17,4 @@ export class SearchedUsers extends Component {
         )
     }
 }
-
-export default SearchedUsers
+export default UserSearch

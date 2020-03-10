@@ -20,8 +20,6 @@ export class Users extends Component {
                         <img src={user.avatar_url} alt=""/>
                         <p className="ml-3">{user.login}</p>
                     </div>
-                    <p className="mt-3">{user.type}</p>
-                    <p className="mt-3">tst@gmail.com</p>
                     <button className="btn profile-btn"><a href={this.props.url}>Profile</a></button>
                 </div>            
         })
