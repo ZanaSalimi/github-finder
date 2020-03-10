@@ -7,14 +7,14 @@ export class Users extends Component {
           data: []
         }
       }
-    UNSAFE_componentWillMount(){
+    /*UNSAFE_componentWillMount(){
         this.setState({loading: true})
         fetch(`https://api.github.com/users`)
         .then(res => res.json())
         .then(data => this.setState({ data, loading: false }))
-      }
+      }*/
     render() {
-        const users = this.state.data.map(user => {
+        const users = this.props.users.map(user => {
                 return <div key={user.id} className="d-flex justify-content-between user-item py-3 px-5 my-5">
                     <div className="d-flex profile align-items-center">
                         <img src={user.avatar_url} alt=""/>

@@ -34,10 +34,9 @@ export class Home extends Component {
                     </div>
                     </div>
                 </Switch>
-                <Footer />
             </Router>
         )
     }
 }
-
+//<Footer />
 export default Home

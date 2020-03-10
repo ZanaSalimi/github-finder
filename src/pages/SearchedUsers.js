@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import Users from '../components/Users'
+import Search from '../components/Search'
 export class SearchedUsers extends Component {
+    state = {
+        tst: []
+    }
+    tst = (tst) => {
+        this.setState({ tst })
+    }
     render() {
         return (
             <div>
-                <input type="text" placeholder="Search Github User..." className="mt-3 w-100 border-0 user-search p-3" />
-                <Users users={this.props.users} />
+                <Search tst={this.tst} />
+                <Users users={this.state.tst} />
             </div>
         )
     }
