@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import Users from '../components/Users'
-import Search from '../components/Search'
+import SearchInput from '../components/SearchInput'
 export class UserSearch extends Component {
     state = {
-        tst: []
+        data: []
     }
-    tst = (tst) => {
-        this.setState({ tst })
+    data = (data) => {
+        this.setState({ data })
     }
     render() {
         return (
             <div>
-                <Search tst={this.tst} />
-                <Users users={this.state.tst} />
+                <SearchInput data={this.data} />
+                <Users users={this.state.data} />
             </div>
         )
     }
