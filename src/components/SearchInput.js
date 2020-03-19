@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Search } from 'react-feather';
-
+import Loading from '../components/Loading'
 export class SearchInput extends Component {
     constructor(props){
         super(props);
@@ -23,6 +23,7 @@ export class SearchInput extends Component {
         e.preventDefault()
         if(this.state.isValid){
             this.setState({ loading: true})
+            this.props.loading(this.state.loading)
             fetch(`https://api.github.com/search/users?q=${this.state.text}`)
             .then(res=> res.json())
             .then(data => {
@@ -30,6 +31,7 @@ export class SearchInput extends Component {
                     payload: data.items,
                     loading: false
                 })
+                this.props.loading(this.state.loading)
                 this.props.data(this.state.payload)
                 })
         }
@@ -48,6 +50,8 @@ export class SearchInput extends Component {
                 </button>
                 </div>
             </form>
+            {this.state.loading ? <Loading /> : ''}
+            <Loading />
             </div>
         )
     }
