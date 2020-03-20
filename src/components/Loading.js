@@ -5,7 +5,7 @@ export class Loading extends Component {
     render() {
         return (
             <div className="text-center">
-                <Spin />
+                <img src={Spin} />
             </div>
         )
     }

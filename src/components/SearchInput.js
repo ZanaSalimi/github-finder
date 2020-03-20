@@ -29,6 +29,7 @@ export class SearchInput extends Component {
             .then(data => {
                 this.setState({
                     payload: data.items,
+                    text: '',
                     loading: false
                 })
                 this.props.loading(this.state.loading)
@@ -51,7 +52,6 @@ export class SearchInput extends Component {
                 </div>
             </form>
             {this.state.loading ? <Loading /> : ''}
-            <Loading />
             </div>
         )
     }
