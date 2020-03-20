@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SearchInput from '../components/SearchInput'
 import mainImage from '../img/github-header.png'
 import { Link } from 'react-router-dom'
 export class Home extends Component {
@@ -11,7 +10,9 @@ export class Home extends Component {
                         <span className="d-block">FIND GITHUB</span>ACCOUNTS
                         </h1>
                         <Link to="/users">
-                            <SearchInput />
+                            <button className="submit-btn mt-5">
+                                Lets Start!
+                            </button>
                         </Link>
                     </div>
                     <div className="main-image">
@@ -22,8 +23,3 @@ export class Home extends Component {
     }
 }
 export default Home
-/*
-<button className="submit-btn mt-5">
-                                Lets Start!
-                            </button>
-*/

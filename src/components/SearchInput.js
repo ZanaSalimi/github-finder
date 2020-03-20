@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Search } from 'react-feather';
-import Loading from '../components/Loading'
+
 export class SearchInput extends Component {
     constructor(props){
         super(props);
@@ -23,20 +23,10 @@ export class SearchInput extends Component {
         e.preventDefault()
         if(this.state.isValid){
             this.setState({ loading: true})
-            this.props.loading(this.state.loading)
-            fetch(`https://api.github.com/search/users?q=${this.state.text}`)
-            .then(res=> res.json())
-            .then(data => {
-                this.setState({
-                    payload: data.items,
-                    text: '',
-                    loading: false
-                })
-                this.props.loading(this.state.loading)
-                this.props.data(this.state.payload)
-                })
+            this.props.search(this.state.text)
         }
         else{
+            this.setState({ text: '' })
             alert('Not Founded!')
         }
     }
@@ -51,7 +41,6 @@ export class SearchInput extends Component {
                 </button>
                 </div>
             </form>
-            {this.state.loading ? <Loading /> : ''}
             </div>
         )
     }

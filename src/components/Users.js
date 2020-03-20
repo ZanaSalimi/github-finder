@@ -7,12 +7,9 @@ export class Users extends Component {
           data: []
         }
       }
-    /*UNSAFE_componentWillMount(){
-        this.setState({loading: true})
-        fetch(`https://api.github.com/users`)
-        .then(res => res.json())
-        .then(data => this.setState({ data, loading: false }))
-      }*/
+    onClick = (e) => {
+        console.log(e.value)
+    }
     render() {
         const users = this.props.users.map(user => {
                 return <div key={user.id} className="d-flex justify-content-between user-item py-3 px-5 my-5">
@@ -20,12 +17,12 @@ export class Users extends Component {
                         <img src={user.avatar_url} alt=""/>
                         <p className="ml-3">{user.login}</p>
                     </div>
-                    <button className="btn profile-btn"><a href={this.props.url}>Profile</a></button>
+                    <button className="btn profile-btn" onClick={this.onClick}>Profile</button>
                 </div>            
         })
         return (
             <div className="container mt-5 users">
-                {users}
+                { this.props.users !== [] ? users : '' }
             </div>
         )
     }
