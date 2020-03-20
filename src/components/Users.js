@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
 export class Users extends Component {
     constructor(props){
         super(props);
@@ -17,7 +17,11 @@ export class Users extends Component {
                         <img src={user.avatar_url} alt=""/>
                         <p className="ml-3">{user.login}</p>
                     </div>
-                    <button className="btn profile-btn" onClick={this.onClick}>Profile</button>
+                    <button className="btn profile-btn" onClick={this.onClick}>
+                        <Link to={`user/${user.login}`}>
+                        Profile
+                        </Link>
+                    </button>
                 </div>            
         })
         return (

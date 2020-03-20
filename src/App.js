@@ -5,12 +5,14 @@ import Home from './pages/Home'
 import UserSearch from './pages/UserSearch'
 import Contact from './pages/Contact'
 import Header from './components/Header'
+import User from './pages/User'
 
 export class App extends Component {
   constructor(props){
     super(props);
     this.state= {
       Users: [],
+      User: {},
       loading: false
     }
   }
@@ -25,8 +27,12 @@ export class App extends Component {
       })
     })
   }
-  singleUser = () => {
-
+  singleUser = (username) => {
+    fetch(`https://api.github.com/search/users/${username}`)
+    .then(res => res.json())
+    .then(data => {
+      this.setState({ User: data })
+    })
   }
   render() {
       return (
@@ -34,8 +40,11 @@ export class App extends Component {
           <div className="container">
           <Header />
             <Switch>
+              <Route path="/user/:login">
+                  <User />
+              </Route>
               <Route path="/users">
-                  <UserSearch search={this.searchUsers} payload={this.state} />
+                  <UserSearch search={this.searchUsers} payload={this.state} user={this.state.User} />
               </Route>
               <Route path="/Contact">
                   <Contact />
