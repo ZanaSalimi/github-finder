@@ -18,7 +18,7 @@ export class App extends Component {
   }
   searchUsers = (text) => {
     this.setState({ loading: true})
-    fetch(`https://api.github.com/search/users?q=${text}`)
+    fetch(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
     .then(res=> res.json())
     .then(data => {
       this.setState({
@@ -28,7 +28,7 @@ export class App extends Component {
     })
   }
   singleUser = (username) => {
-    fetch(`https://api.github.com/search/users/${username}`)
+    fetch(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
     .then(res => res.json())
     .then(data => {
       this.setState({ User: data })
@@ -41,10 +41,10 @@ export class App extends Component {
           <Header />
             <Switch>
               <Route path="/user/:login">
-                  <User />
+                  <User username={this.state.User} />
               </Route>
               <Route path="/users">
-                  <UserSearch search={this.searchUsers} payload={this.state} user={this.state.User} />
+                  <UserSearch search={this.searchUsers} payload={this.state} user={this.state.User} username={this.singleUser} />
               </Route>
               <Route path="/Contact">
                   <Contact />

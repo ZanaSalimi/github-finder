@@ -8,7 +8,7 @@ export class Users extends Component {
         }
       }
     onClick = (e) => {
-        console.log(e.value)
+        
     }
     render() {
         const users = this.props.users.map(user => {
@@ -17,8 +17,8 @@ export class Users extends Component {
                         <img src={user.avatar_url} alt=""/>
                         <p className="ml-3">{user.login}</p>
                     </div>
-                    <button className="btn profile-btn" onClick={this.onClick}>
-                        <Link to={`user/${user.login}`}>
+                    <button className="btn profile-btn" onClick={() => this.props.username(user.login) }>
+                        <Link to={`/user/${user.login}`}>
                         Profile
                         </Link>
                     </button>
