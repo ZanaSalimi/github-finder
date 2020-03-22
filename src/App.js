@@ -13,6 +13,7 @@ export class App extends Component {
     this.state= {
       Users: [],
       User: {},
+      repos: [],
       loading: false
     }
   }
@@ -27,11 +28,16 @@ export class App extends Component {
       })
     })
   }
-  singleUser = (username) => {
-    fetch(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
+  singleUser = async (username) => {
+    await fetch(`https://api.github.com/users/${username}?client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
     .then(res => res.json())
     .then(data => {
       this.setState({ User: data })
+    })
+    await fetch(`https://api.github.com/users/${username}/repos?per_page=4&sort=created:asc&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
+    .then(res => res.json())
+    .then(data => {
+      this.setState({ repos: data })
     })
   }
   render() {
@@ -41,7 +47,7 @@ export class App extends Component {
           <Header />
             <Switch>
               <Route path="/user/:login">
-                  <User username={this.state.User} />
+                  <User username={this.state.User} repos={this.state.repos} />
               </Route>
               <Route path="/users">
                   <UserSearch search={this.searchUsers} payload={this.state} user={this.state.User} username={this.singleUser} />

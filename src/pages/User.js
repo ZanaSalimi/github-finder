@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
-import { MapPin, Mail, Link, Code } from 'react-feather'
+import { MapPin, Mail, Link, Code, Star, GitBranch } from 'react-feather'
 export class User extends Component {
     render() {
         const { login, avatar_url, name, bio, location, email, blog, hireable } = this.props.username;
+        const repos = this.props.repos.map(repo => {
+            return <div className="repo" key={repo.id} >
+                        <h3>{repo.name}</h3>
+                        <p>{repo.description}</p>
+                        <span><Code />  {repo.language}</span>
+                        <span><GitBranch />  {repo.forks}</span>
+                        <span><Star />  {repo.stargazers_count}</span>
+                    </div>
+        })
         return (
             <div className="container mt-5">
                 <div className="header-box row px-3 py-4">
@@ -20,6 +29,9 @@ export class User extends Component {
                         <p><Link className="contact-ico" />  { blog }</p>
                         <p><Code className="contact-ico" />  Hirable: { hireable ? 'Available' : 'Unavailable' }</p>
                     </div>
+                </div>
+                <div className="repos">
+                    {repos}
                 </div>
             </div>
         )
