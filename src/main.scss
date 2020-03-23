@@ -101,3 +101,31 @@ body{
         }
     }
 }
+.repos{
+    .repo{
+        width: 364px;
+        height: 133px;
+        border: 1px solid #EFF4FD;
+        border-radius: 14px;
+        padding: 17px 30px;
+        overflow: hidden;
+        h4{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 19px;
+        }
+        p{
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        .tst{
+            position: absolute;
+        }
+        .repo-details{
+            margin-right: 15px;
+            font-size: 14px;
+            
+        }
+    }
+}

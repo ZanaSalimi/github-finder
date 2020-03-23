@@ -4,12 +4,14 @@ export class User extends Component {
     render() {
         const { login, avatar_url, name, bio, location, email, blog, hireable } = this.props.username;
         const repos = this.props.repos.map(repo => {
-            return <div className="repo" key={repo.id} >
-                        <h3>{repo.name}</h3>
+            return <div className="repo m-4" key={repo.id} >
+                        <h4>{repo.name}</h4>
                         <p>{repo.description}</p>
-                        <span><Code />  {repo.language}</span>
-                        <span><GitBranch />  {repo.forks}</span>
-                        <span><Star />  {repo.stargazers_count}</span>
+                        <div className="">
+                            <span className="text-primary repo-details"><Code size={20} strokeWidth={1} />  {repo.language}</span>
+                            <span className="text-primary repo-details"><GitBranch size={20} strokeWidth={1} />  {repo.forks}</span>
+                            <span className="text-primary repo-details"><Star size={20} strokeWidth={1} />  {repo.stargazers_count}</span>
+                        </div>
                     </div>
         })
         return (
@@ -30,8 +32,10 @@ export class User extends Component {
                         <p><Code className="contact-ico" />  Hirable: { hireable ? 'Available' : 'Unavailable' }</p>
                     </div>
                 </div>
-                <div className="repos">
-                    {repos}
+                <div className="container repos">
+                    <div className="row mx-5 d-flex justify-content-between">
+                        {repos}
+                    </div>
                 </div>
             </div>
         )
