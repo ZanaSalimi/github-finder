@@ -6,7 +6,8 @@ import UserSearch from './pages/UserSearch'
 import Contact from './pages/Contact'
 import Header from './components/Header'
 import User from './pages/User'
-
+import { searchUsers } from './actions'
+import { connect } from 'react-redux'
 export class App extends Component {
   constructor(props){
     super(props);
@@ -18,6 +19,7 @@ export class App extends Component {
     }
   }
   searchUsers = (text) => {
+    this.props.searchUsers(text)
     this.setState({ loading: true})
     fetch(`https://api.github.com/search/users?q=${text}&client_id=${process.env.REACT_APP_CLIENT_ID}&client_secret=${process.env.REACT_APP_CLIENT_SECRET}`)
     .then(res=> res.json())
@@ -64,5 +66,7 @@ export class App extends Component {
       )
   }
 }
-
-export default App
+const mapStateToProps = (state) => {
+    return state
+}
+export default connect(mapStateToProps, {searchUsers})(App)
