@@ -1,9 +1,9 @@
 const initialState = []
 
-const searchUsers = (state=[], action) => {
+const searchUsers = (state=initialState, action) => {
     switch (action.type) {
         case 'SEARCH_USERS':
-            return action.type
+            return action.payload
         default:
             return state
     }

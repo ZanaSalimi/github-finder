@@ -7,7 +7,7 @@ export class UserSearch extends Component {
         return (
             <div>
                 <SearchInput search={this.props.search} />
-                { this.props.payload.loading ? <Loading /> : <Users users={this.props.payload.Users} user={this.props.user} username={this.props.username} /> }
+        { this.props.payload.loading ? <Loading /> : <Users user={this.props.user} username={this.props.username} /> }
             </div>
         )
     }
